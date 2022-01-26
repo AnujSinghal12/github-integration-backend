@@ -8,7 +8,6 @@ app.use(cors());
 
 app.get("/temp", (req, res) => {
   const request_token = req.query.token;
-  console.log(request_token);
   if (!request_token) {
     res.send({ success: false });
     return;
@@ -21,8 +20,6 @@ app.get("/temp", (req, res) => {
     },
   }).then((response) => {
     const accessToken = response.data.access_token;
-    console.log(response.data);
-    console.log(accessToken);
 
     if (accessToken === undefined) {
       res.send({ success: false });
